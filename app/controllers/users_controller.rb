@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id #does it make sense to set this in both the sessions and user controller? 
+      session[:user_id] = @user.id #does it make sense to set this in both the sessions and user controller?
       redirect_to user_path(@user)
     else
       redirect_to new_user_path
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :password, :email)
+    params.require(:user).permit(:name, :password, :email, :password_confirmation)
   end
 
 
