@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "application#index"
+
   delete "/logout" => "sessions#destroy"
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
 
   resources :users
 
