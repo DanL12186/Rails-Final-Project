@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
 
-  validates :name, uniqueness: true, presence: true #validates_presence_of format instead?
-  validates :email, uniqueness: true, if: 'email.present?'
+  validates :name, uniqueness: { case_sensitive: false }
+  validates :email, uniqueness: true, allow_blank: true
+  validates :password, length: { minimum: 4 }
   validates :password_digest, presence: true
-  validates :password, length: { minimum: 4 } #do I need presence if I have length?
   validates_confirmation_of :password
 
 end

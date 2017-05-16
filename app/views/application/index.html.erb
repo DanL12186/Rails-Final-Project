@@ -1,6 +1,6 @@
 Index
-<%= link_to "Log out", "/logout", method: :delete %>
-<%= link_to "Log in", "/login" %>
+<%= link_to "Log out", "/logout", method: :delete if logged_in? %>
+<%= link_to "Log in", "/login" unless logged_in? %>
 
 <%= current_user %>
 <%= logged_in? %>
