@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id  if  @user && @user.authenticate(session_params[:password])
   end
 
+  def destroy
+    session.clear
+  end
+
   private
 
   def session_params
