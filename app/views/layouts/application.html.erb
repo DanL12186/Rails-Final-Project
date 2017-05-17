@@ -2,13 +2,30 @@
 <html>
   <head>
     <title>RailsFinal</title>
-    <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
-
   <body>
-    <%= yield %>
+
+    <!--  navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+
+          <%= render "layouts/navigation" %> <!-- nav partial -->
+
+        </div>
+          <ul class="nav navbar-nav">
+           <!--  nav here -->
+          </ul>
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="container" role="main">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
