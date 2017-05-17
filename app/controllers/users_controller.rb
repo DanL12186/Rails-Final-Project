@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user!, only: [:show, :edit]
+  before_action :set_user!, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update(user_params)
+    redirect_to root_path
   end
 
   def index
