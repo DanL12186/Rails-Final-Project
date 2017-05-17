@@ -18,9 +18,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def edit #don't really need
-  end
-
   def update
     @user.update(user_params)
     redirect_to root_path
