@@ -17,6 +17,8 @@ class CharactersController < ApplicationController
   end
 
   def update
+    @character.update(character_params)
+    @character.valid? ? (redirect_to character_path(@character)) : (redirect_to edit_character_path)
   end
 
   def destroy
