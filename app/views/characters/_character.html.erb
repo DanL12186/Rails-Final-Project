@@ -2,6 +2,10 @@
   <%= f.label "Character name" %>
   <%= f.text_field :name %>
 
+  <br>
+
+  <h3>Show:</h3> <%= f.collection_select(:show_id, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
+
   <br><br>
 
   <%= f.label "deceased?" %>
@@ -13,9 +17,9 @@
   <%= f.check_box :dislike %>
 
   <br><br>
-  
-  <%= f.collection_select(:show_id, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
-  <br><br>
+
+  <%= f.text_area :note, value: character.note %> <br><br>
+
   <%= f.submit %>
 
 <% end %>
