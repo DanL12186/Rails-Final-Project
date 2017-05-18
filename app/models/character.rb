@@ -1,4 +1,5 @@
 class Character < ApplicationRecord
-  belongs_to :show
+  include CharactersHelper
 
+  belongs_to :show
 end

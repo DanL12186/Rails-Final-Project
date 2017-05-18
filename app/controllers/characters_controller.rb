@@ -6,6 +6,8 @@ class CharactersController < ApplicationController
   end
 
   def create
+    @character = Character.create(character_params) #can probably do away with () around @char
+    @character ? (redirect_to character_path(@character)) : (redirect_to new_character_path)
   end
 
   def edit
@@ -27,7 +29,7 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :show_id, :alive, :like)
+    params.require(:character).permit(:name, :show_id, :deceased, :dislike)
   end
 
 end

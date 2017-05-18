@@ -13,8 +13,8 @@
   <%= f.check_box :dislike %>
 
   <br><br>
-
-  <%= f.collection_select(:show, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
+  
+  <%= f.collection_select(:show_id, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
   <br><br>
   <%= f.submit %>
 
