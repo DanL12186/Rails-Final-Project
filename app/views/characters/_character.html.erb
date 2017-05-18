@@ -1,0 +1,21 @@
+<%= form_for character do |f| %>
+  <%= f.label "Character name" %>
+  <%= f.text_field :name %>
+
+  <br><br>
+
+  <%= f.label "deceased?" %>
+  <%= f.check_box :deceased %>
+
+  <br><br>
+
+  <%= f.label "dislike?" %>
+  <%= f.check_box :dislike %>
+
+  <br><br>
+
+  <%= f.collection_select(:show, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
+  <br><br>
+  <%= f.submit %>
+
+<% end %>
