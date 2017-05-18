@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :shows
+  resources :characters
   root "application#index"
 
   delete "/logout" => "sessions#destroy"
