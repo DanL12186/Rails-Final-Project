@@ -18,6 +18,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit
+    redirect_to root_path unless @user.id == current_user.id
+  end
+
   def update
     @user.update(user_params)
     redirect_to root_path

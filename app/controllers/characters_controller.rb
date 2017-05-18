@@ -11,6 +11,7 @@ class CharactersController < ApplicationController
   end
 
   def edit
+    redirect_to root_path unless current_user.id == @character.show.user_id
   end
 
   def show #seems a bit pointless.
