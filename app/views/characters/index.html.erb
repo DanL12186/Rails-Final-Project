@@ -2,11 +2,11 @@
 
 <h1> Your characters </h1>
 
-<% @characters.each do |character| %>
-  <h2> Name: <%= character.name %> </h2>
-  <h3> Status: <%= character.status %> </h3>
-  <h3> Classification: <%= character.hero? %> </h3>
-  <h3> Notes: <%= character.note %> </h3>
-  <h3> <%= link_to "Edit #{character.name}", edit_user_show_character_path(current_user, character.show.id, character.id) %> </h3>
+<% @characters.each do |char| %>
+  <h2> Name: <%= char.name %> </h2>
+  <h3> Status: <%= char.status %> </h3>
+  <h3> Classification: <%= char.hero? %> </h3>
+  <h3> Notes: <%= char.note %> </h3>
+  <h3> <%= link_to "Edit #{char.name}", edit_user_show_character_path(current_user, char.show.id, char.id) %> </h3>
   <br>
 <% end %>
