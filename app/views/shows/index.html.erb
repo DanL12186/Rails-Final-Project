@@ -1,5 +1,7 @@
-Your shows:
+<h2><%= link_to "Add new show", new_user_show_path %></h2>
+
+<h1>Your shows:</h1>
 
 <% current_user.shows.each do |show| %>
-  <div> <%= link_to show.name, user_show_path(show.user_id, show.id) %> </div>
+  <h3><ul> <%= link_to show.name, user_show_path(show.user_id, show.id) %> </ul></h3>
 <% end %>
