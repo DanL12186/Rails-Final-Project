@@ -1,7 +1,1 @@
 <h3>Welcome, <%= current_user.name %></h3>
-
-Your shows:
-
-<% current_user.shows.each do |show| %>
-  <div> <%= link_to show.name, user_shows_path(show) %> </div>
-<% end %>

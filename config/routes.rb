@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   root "application#home"
 
-  resources :shows
-
   resources :users do
-    resources :characters
+    resources :shows do
+      resources :characters
+    end
   end
 
 

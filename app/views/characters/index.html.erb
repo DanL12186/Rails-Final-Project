@@ -6,6 +6,6 @@
   <h3> Status: <%= character.status %> </h3>
   <h3> Classification: <%= character.hero? %> </h3>
   <h3> Notes: <%= character.note %> </h3>
-  <h3> <%= link_to "Edit #{character.name}", edit_user_character_path(current_user, character.id) %> </h3>
+  <h3> <%= link_to "Edit #{character.name}", edit_user_show_character_path(current_user, character.show.id, character.id) %> </h3>
   <br>
 <% end %>
