@@ -1,5 +1,5 @@
 Your shows:
 
 <% current_user.shows.each do |show| %>
-  <div> <%= link_to show.name, user_shows_path(show.id) %> </div>
+  <div> <%= link_to show.name, user_show_path(show.user_id, show.id) %> </div>
 <% end %>
