@@ -3,10 +3,9 @@
 <h1> Your characters </h1>
 
 <% @characters.each do |char| %>
-  <h2> Name: <%= char.name %> </h2>
+  <h2> Name: <%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id) %> </h2>
   <h3> Status: <%= char.status %> </h3>
   <h3> Classification: <%= char.hero? %> </h3>
   <h3> Notes: <%= char.note %> </h3>
-  <h3> <%= link_to "Edit #{char.name}", edit_user_show_character_path(current_user, char.show.id, char.id) %> </h3>
   <br>
 <% end %>
