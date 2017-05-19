@@ -6,7 +6,6 @@ class CharactersController < ApplicationController
   end
 
   def create
-    binding.pry
     @character = Character.create(character_params)
     @character ? (redirect_to user_show_characters_path) : (redirect_to new_user_show_character_path)
   end
@@ -17,7 +16,7 @@ class CharactersController < ApplicationController
 
   def update
     @character.update(character_params)
-    @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to user_show_edit_character_path)
+    @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to edit_user_show_character_path)
   end
 
   def index
