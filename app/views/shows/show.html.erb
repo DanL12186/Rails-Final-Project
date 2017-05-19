@@ -1,0 +1,5 @@
+<h1> <%= @show.name %> </h1>
+
+<% @show.characters.each do |character| %>
+  <h3><%= character.name %> </h3>
+<% end %>
