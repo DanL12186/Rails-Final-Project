@@ -1,5 +1,6 @@
+<h3> <%= link_to "Create new character", new_user_show_character_path %> </h3>
+
 <h1> Your characters </h1>
-<br>
 
 <% @characters.each do |character| %>
   <h2> Name: <%= character.name %> </h2>

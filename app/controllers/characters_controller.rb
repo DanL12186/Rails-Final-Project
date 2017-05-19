@@ -6,8 +6,9 @@ class CharactersController < ApplicationController
   end
 
   def create
+    binding.pry
     @character = Character.create(character_params)
-    @character ? (redirect_to user_show_character_path(@character)) : (redirect_to new_user_show_character_path)
+    @character ? (redirect_to user_show_characters_path) : (redirect_to new_user_show_character_path)
   end
 
   def edit
@@ -36,7 +37,7 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :show_id, :deceased, :dislike, :note)
+    params.require(:character).permit(:name, :show_id, :user_id, :deceased, :dislike, :note)
   end
 
 end
