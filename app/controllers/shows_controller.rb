@@ -4,11 +4,13 @@ class ShowsController < ApplicationController
 
   def new
     @show = Show.new
-    @show.characters.build() #x.times do
+    2.times { @show.characters.build }
   end
 
   def create
-    @show = Show.create(show_params)
+    binding.pry
+    @show = Show.new(show_params)
+    @show.save
   end
 
   def edit
@@ -31,7 +33,7 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:name, :user_id, characters_attributes: [:show_id, :dislike, :deceased, :name])
+    params.require(:show).permit(:name, :user_id, characters_attributes: [:note, :show_id, :dislike, :deceased, :name])
   end
 
 end
