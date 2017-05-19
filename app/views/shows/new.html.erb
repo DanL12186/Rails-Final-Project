@@ -1,0 +1,16 @@
+<%= form_for [:user, @show] do |f| %>
+  <%= f.label "Show name" %>
+  <%= f.text_field :name %>
+  <br><br>
+
+  <%= fields_for :characters do |char| %>
+    <%= char.hidden_field :user_id, value: current_user.id %>
+    <%= char.label :name %>
+    <%= char.text_field :name %>
+    <%= char.label :note %>
+    <%= char.text_area :note %>
+
+  <% end %>
+    <br><br>
+    <%= f.submit %>
+<% end %>
