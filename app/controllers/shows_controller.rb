@@ -17,6 +17,10 @@ class ShowsController < ApplicationController
   def destroy
   end
 
+  def index
+    @shows = current_user.shows
+  end
+
   private
 
   def set_show
