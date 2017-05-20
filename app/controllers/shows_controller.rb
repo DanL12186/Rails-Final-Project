@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:edit, :show, :update]
-  # before_action :deny_unauthorized_access, only: [:new, :edit, :update, :destroy]
+  before_action :deny_unauthorized_access, only: [:new, :edit, :update, :destroy]
 
   def new
     @show = Show.new
@@ -10,9 +10,6 @@ class ShowsController < ApplicationController
   def create
     @show = Show.new(show_params)
     @show.save ? (redirect_to user_shows_path(current_user)) : (redirect_to new_user_show_path)
-  end
-
-  def edit
   end
 
   def update

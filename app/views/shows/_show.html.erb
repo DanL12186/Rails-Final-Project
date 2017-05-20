@@ -7,7 +7,7 @@
 
   <%= f.hidden_field :user_id, value: current_user.id %>
   <br>
-  <h3> Add characters </h3>
+  <h3> Characters </h3>
   <%= f.fields_for :characters do |char| %>
     <br>
     <%= char.label :name %>
