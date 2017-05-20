@@ -4,7 +4,7 @@
 
   <br>
 
-  <h3>Show:</h3> <%= f.collection_select(:show_id, Show.all, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
+  <h3>Show:</h3> <%= f.collection_select(:show_id, current_user.shows, :id, :name, include_blank: true, prompt: "Select show character belongs to") %>
 
   <br><br>
 

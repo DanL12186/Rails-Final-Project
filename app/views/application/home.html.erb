@@ -1,4 +1,4 @@
-Index
-
-<%= current_user %>
-<%= logged_in? %>
+<ul>
+<h4> <%= link_to "View Shows", user_shows_path(current_user) %> </h4>
+<h4> <%= link_to "Add New Show", new_user_show_path(current_user) %> </h4>
+</ul>

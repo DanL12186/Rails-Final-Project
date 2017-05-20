@@ -1,5 +1,5 @@
 <h1> <%= @show.name %> </h1>
 
-<% @show.characters.each do |character| %>
-  <h3><%= character.name %> </h3>
+<% @show.characters.each do |char| %>
+  <h3><%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id)%> </h3>
 <% end %>
