@@ -13,5 +13,7 @@
 <h3>
   <%= link_to "Edit #{@character.name}", edit_user_show_character_path(@character) %>
   <br>
+  <%= link_to "Delete #{@character.name}", user_show_character_path(@character), method: :delete %>
+  <br>
   <%= link_to "View all your characters", user_show_characters_path %>
 </h3>
