@@ -4,11 +4,10 @@ class ShowsController < ApplicationController
 
   def new
     @show = Show.new
-    2.times { @show.characters.build }
+    3.times { @show.characters.build }
   end
 
   def create
-    binding.pry
     @show = Show.new(show_params)
     @show.save ? (redirect_to user_shows_path(current_user)) : (redirect_to new_user_show_path)
   end
@@ -17,6 +16,8 @@ class ShowsController < ApplicationController
   end
 
   def update
+    @show.update(show_params)
+    @show.valid? ? (redirect_to user_show_path(@show)) : (redirect_to edit_user_show_path(@show))
   end
 
   def destroy

@@ -1,0 +1,30 @@
+<ol>
+
+<%= form_for([:user, show]) do |f| %>
+  <h2><%= f.label "Show name" %>
+  <br>
+  <%= f.text_field :name %></h2>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <br>
+  <h3> Add characters </h3>
+  <%= f.fields_for :characters do |char| %>
+    <br>
+    <%= char.label :name %>
+    <%= char.text_field :name %>
+    <br><br>
+    <%= char.label :notes %>
+    <%= char.text_area :note %>
+    <br><br>
+    <%= char.label :deceased? %>
+    <%= char.check_box :deceased %>
+    <br><br>
+    <%= char.label :dislike? %>
+    <%= char.check_box :dislike %>
+    <br><br>
+
+   <% end %>
+  <%= f.submit %>
+<% end %>
+
+</ol>

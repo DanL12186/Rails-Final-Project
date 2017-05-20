@@ -1,25 +1,4 @@
-<%= form_for [:user, @show] do |f| %>
-  <h1><%= f.label "Show name" %>
-  <br>
-  <%= f.text_field :name %></h1>
-
-  <%= f.hidden_field :user_id, value: current_user.id %>
-
-  <h3>Add characters </h3>
-  <%= f.fields_for :characters do |char| %>
-    <br>
-    <%= char.label :name %>
-    <%= char.text_field :name %>
-    <br><br>
-    <%= char.label :note %>
-    <%= char.text_area :note %>
-    <br><br>
-    <%= char.label :deceased? %>
-    <%= char.check_box :deceased %>
-    <br><br>
-    <%= char.label :dislike? %>
-    <%= char.check_box :dislike %>
-    <br><br>
-  <% end %>
-    <%= f.submit %>
-<% end %>
+<ol>
+<h1> New TV Show </h1> </ol>
+<br>
+<%= render partial: "show", locals: { show: @show } %>
