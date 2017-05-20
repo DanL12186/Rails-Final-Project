@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
   end
 
   def index
-    @characters = Character.all
+    @characters = current_user.characters
   end
 
   def destroy
