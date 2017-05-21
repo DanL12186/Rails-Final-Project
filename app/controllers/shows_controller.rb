@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: [:edit, :show, :update]
-  before_action :deny_unauthorized_access, only: [:new, :edit, :update, :destroy]
+  before_action :set_show, only: [:edit, :show, :update, :destroy]
+  before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
 
   def new
     @show = Show.new
@@ -18,6 +18,7 @@ class ShowsController < ApplicationController
   end
 
   def destroy
+    @show.destroy
   end
 
   def index
