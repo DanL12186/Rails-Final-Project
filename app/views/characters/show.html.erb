@@ -1,6 +1,6 @@
 <h1> <%= @character.name %> </h1>
 
-<h2> <%= @character.show.name %> </h2>
+<h2> <%= link_to @character.show.name, user_show_path(current_user, @character.show) %> </h2>
 
 <h3> <%= @character.hero? %> </h3>
 
