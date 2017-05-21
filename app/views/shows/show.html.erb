@@ -1,6 +1,9 @@
+<h2><%= link_to "Add character", new_user_show_character_path(current_user, @show) %></h2>
+
+<br>
+
 <h3><%= link_to "Edit #{@show.name}", edit_user_show_path %></h3>
 <h1> <%= @show.name %> </h1>
-
 
 <% @show.characters.each do |char| %>
   <h3><%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id)%> </h3>
