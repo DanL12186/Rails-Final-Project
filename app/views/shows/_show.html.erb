@@ -8,7 +8,6 @@
   <%= f.fields_for :characters do |char| %>
     <br>
     <fieldset>
-    <br>
     <legend>Character</legend>
     <%= char.label :name %>
     <%= char.text_field :name %>
@@ -22,7 +21,7 @@
     <%= char.label :dislike? %>
     <%= char.check_box :dislike %>
     <br>
-     </fieldset>
+    </fieldset>
    <% end %>
   <br>
   <%= f.submit %>
