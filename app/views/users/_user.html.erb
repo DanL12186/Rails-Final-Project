@@ -5,8 +5,8 @@
   <%= f.text_field :email %> <br>
   <%= f.label :password %>
   <%= f.password_field :password %> <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %> <br>
+  <%= f.label :password_confirmation unless logged_in? %>
+  <%= f.password_field :password_confirmation unless logged_in? %> <br>
   <br>
   <%= f.submit %>
 <% end %>
