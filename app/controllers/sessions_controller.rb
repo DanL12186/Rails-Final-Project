@@ -17,10 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def omnicreate
-   user = User.find_or_create_by(email: auth[:info][:email]) do |omni|
-     omni.name = auth[:info][:name]
-     omni.email = auth[:info][:email]
-   end
+   user = User.find_or_create_by_omniauth(auth)
    session[:user_id] = user.id
    redirect_to root_path #required to get OmniAuth to work right
  end
