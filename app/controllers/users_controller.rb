@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user!, only: [:show, :edit, :update]
+  before_action :set_user!, only: [:show, :edit, :update, :destroy]
 
   def new
     redirect_if_logged_in
@@ -27,6 +27,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to root_path
   end
 
   private

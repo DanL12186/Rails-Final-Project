@@ -2,7 +2,7 @@ class User < ApplicationRecord
   include ApplicationHelper
   has_secure_password
 
-  has_many :shows
+  has_many :shows, dependent: :destroy
   has_many :characters, through: :shows
 
   validates :email, uniqueness: true, allow_blank: true
