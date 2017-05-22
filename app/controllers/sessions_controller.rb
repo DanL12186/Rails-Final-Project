@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def omnicreate
-   user = User.find_or_create_by(omni_id: auth[:omni_id]) do |omni|
+   user = User.find_or_create_by(email: auth[:info][:email]) do |omni|
      omni.name = auth[:info][:name]
      omni.email = auth[:info][:email]
    end
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:password, :name)
+    params.require(:user).permit(:password, :name, :uid)
   end
 
 end
