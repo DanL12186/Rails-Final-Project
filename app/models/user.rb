@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include ApplicationHelper
+
   has_secure_password
 
   has_many :shows, dependent: :destroy

@@ -1,5 +1,5 @@
 class Show < ApplicationRecord
-  include ApplicationHelper
+
   belongs_to :user
   has_many :characters, dependent: :destroy
 
