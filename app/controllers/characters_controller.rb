@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_characters, only: [:index, :favorite_characters]
 
   def new
     @character = Character.new
@@ -19,19 +20,23 @@ class CharactersController < ApplicationController
     @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to edit_user_show_character_path)
   end
 
-  def index
-    @characters = current_user.characters
-  end
 
   def destroy
     @character.destroy
     redirect_to user_show_characters_path
   end
 
+  def favorite_characters
+  end
+
   private
 
   def set_character
     @character = Character.find(params[:id])
+  end
+
+  def set_user_characters
+    @characters = current_user.characters
   end
 
   def character_params

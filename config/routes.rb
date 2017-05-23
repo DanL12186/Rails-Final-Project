@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "application#home"
 
   resources :users do
-    resources :characters, only: [:index]
     resources :shows do
       resources :characters
     end
@@ -13,5 +12,8 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
+  get "/users/:id/shows/all/favorite_characters" => "characters#favorite_characters"
+
   get '/auth/facebook/callback' => 'sessions#omnicreate'
+
 end

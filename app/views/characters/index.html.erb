@@ -1,11 +1,11 @@
 <h3> <%= link_to "Create new character", new_user_show_character_path %> </h3>
-  Living characters you like <%= @characters.like.alive.map {|c| c.name} %>
+
+  <h3> <%= link_to "Favorite living characters", "/users/:id/shows/all/favorite_characters" %> </h3>
+
 <h1> Your characters </h1>
 
-<% @characters.each do |char| %>
-  <h2> Name: <%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id) %> </h2>
-  <h3> Status: <%= char.status %> </h3>
-  <h3> Classification: <%= char.hero? %> </h3>
-  <h3> Notes: <%= char.note %> </h3>
-  <br>
+<% @characters.each do |char| %> <!-- rendering as a partial inside a loop comes with serious performance issues (reloads and guaranteed cache misses) -->
+
+  <%= render partial: "index", locals: { char: char } %>
+
 <% end %>
