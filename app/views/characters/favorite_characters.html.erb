@@ -1,5 +1,5 @@
-Living characters you like:
+<center> <h1> Favorite living characters: </h1> </center>
 
-<% @characters.like.alive.map { |char| char }.each do |char| %> <!-- partials in loops come with serious performance issues (reloads and guaranteed cache misses) .sort_by { |char| char.show_id } before .each to sort by show-->
+<% @characters.like.alive.map { |char| char }.each do |char| %> <!--partials in loops slow; .sort_by { |char| char.show_id } before .each to sort by show-->
   <%= render partial: "index", locals: { char: char } %>
 <% end %>
