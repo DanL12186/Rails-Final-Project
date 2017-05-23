@@ -22,7 +22,7 @@ class ShowsController < ApplicationController
   end
 
   def index
-    @shows = current_user.shows
+    @shows = Show.all.where("user_id = ?", current_user.id)
   end
 
   private
