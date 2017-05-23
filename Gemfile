@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
