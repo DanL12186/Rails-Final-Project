@@ -1,3 +1,9 @@
 <h3>Welcome, <%= current_user.name %></h3>
 
 <%= link_to "See your shows", user_shows_path(current_user) %>
+<br><br>
+<%= "Number of shows: #{current_user.shows.size}" %>
+<br><br>
+<%= "Number of characters across all shows: #{current_user.characters.size}" %>
+<br><br>
+Show with most characters: <%= show_with_most_characters %>
