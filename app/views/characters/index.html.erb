@@ -1,5 +1,5 @@
 <h3> <%= link_to "Create new character", new_user_show_character_path %> </h3>
-
+  Living characters you like <%= @characters.like.alive.map {|c| c.name} %>
 <h1> Your characters </h1>
 
 <% @characters.each do |char| %>
