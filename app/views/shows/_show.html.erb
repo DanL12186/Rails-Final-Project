@@ -1,6 +1,6 @@
 <%= form_for([:user, show]) do |f| %>
 
-  <%= render partial: "/application/errors", locals: { object: show } %>
+  <%= render partial: "errors", locals: { object: show } %>
 
   <h2><%= f.label "Show name" %>
   <%= f.text_field :name %></h2>
