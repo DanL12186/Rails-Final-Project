@@ -9,7 +9,7 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.new(show_params)
-    @show.save ? (redirect_to user_shows_path(current_user)) : (redirect_to new_user_show_path)
+    @show.save ? (redirect_to user_shows_path(current_user)) : (render :new)
   end
 
   def update
