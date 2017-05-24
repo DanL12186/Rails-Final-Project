@@ -11,7 +11,7 @@ class Show < ApplicationRecord
   validate :users_have_unique_shows
 
   def users_have_unique_shows
-    errors.add(:show, "Cannot have two shows of the same name") if self.user.shows.any? { |show| show.name == self.name }
+    errors.add(:show, "already exists; a user can't have two shows with the same name.") if self.user.shows.any? { |show| show.name == self.name }
   end
 
 end
