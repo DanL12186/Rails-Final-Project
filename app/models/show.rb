@@ -5,7 +5,7 @@ class Show < ApplicationRecord
 
   accepts_nested_attributes_for :characters, reject_if: proc { |character| character[:name].blank? }
 
-  validates :name, presence: true
+  validates :name, length: {minimum: 2}
   validates :user_id, presence: true
 
   validate :users_have_unique_shows
