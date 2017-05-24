@@ -1,4 +1,6 @@
 <%= form_for [:user, :show, character] do |f| %>
+  <%= render partial: "errors", locals: { object: character } %>
+
   <%= f.label "Character name" %>
   <%= f.text_field :name %>
 

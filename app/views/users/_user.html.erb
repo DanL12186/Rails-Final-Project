@@ -1,4 +1,6 @@
 <%= form_for user do |f| %>
+  <%= render partial: "errors", locals: { object: user } %>
+
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
   <%= f.label :email %>
