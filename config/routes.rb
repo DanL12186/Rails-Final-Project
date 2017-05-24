@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "application#home"
 
-  resources :users do
+  resources :users, except: [:index] do
     resources :shows do
       resources :characters
     end

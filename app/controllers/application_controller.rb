@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def deny_unauthorized_access
-    redirect_to root_path unless current_user.id == params[:user_id].to_i
+    redirect_to root_path unless current_user.id == params[:id].to_i
   end
 
 
