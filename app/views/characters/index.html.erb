@@ -1,11 +1,9 @@
 <h3> <%= link_to "Create new character", new_user_show_character_path %> </h3>
 
-  <h3> <%= link_to "Favorite living characters", "/users/:id/shows/all/favorite_characters" %> </h3>
+<h3> <%= link_to "Favorite living characters", "/users/#{current_user.id}/shows/all/favorite_characters" %> </h3>
 
 <h1> Your characters </h1>
 
-<% @characters.each do |char| %> <!-- rendering as a partial inside a loop comes with serious performance issues (reloads and guaranteed cache misses) -->
-
+<% @characters.each do |char| %> <!-- rendering a partial inside a loop comes with serious performance issues (reloads and guaranteed cache misses) -->
   <%= render partial: "index", locals: { char: char } %>
-
 <% end %>
