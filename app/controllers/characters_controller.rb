@@ -8,7 +8,7 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.create(character_params)
-    @character.valid? ? (redirect_to user_show_characters_path) : (render :new)
+    @character ? (redirect_to user_show_characters_path) : (redirect_to new_user_show_character_path)
   end
 
   def edit
