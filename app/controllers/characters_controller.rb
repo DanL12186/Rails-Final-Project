@@ -20,7 +20,6 @@ class CharactersController < ApplicationController
     @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to edit_user_show_character_path)
   end
 
-
   def destroy
     @character.destroy
     redirect_to user_show_characters_path

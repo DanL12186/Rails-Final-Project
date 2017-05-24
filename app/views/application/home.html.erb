@@ -1,6 +1,6 @@
 <ul>
 <br>
-<h4> <%= link_to "View Shows", user_shows_path(current_user) if current_user%> </h4>
+<h4> <%= link_to "View Shows", user_shows_path(current_user) if current_user %> </h4>
 <h4> <%= link_to "Add New Show", new_user_show_path(current_user) if current_user %> </h4>
 <h4> <%= link_to "Create New Character", new_user_show_character_path(current_user, "all") if current_user %> </h4>
 <h4> <%= link_to "View all Characters", user_show_characters_path(current_user, "all", @characters) if current_user %> </h4>
