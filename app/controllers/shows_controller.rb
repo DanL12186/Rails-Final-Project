@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: [:edit, :show, :update, :destroy]
+  before_action :set_show!, only: [:edit, :show, :update, :destroy]
   before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
 
   def new
@@ -19,15 +19,16 @@ class ShowsController < ApplicationController
 
   def destroy
     @show.destroy
+    redirect_to user_shows_path(current_user)
   end
 
   def index
-    @shows = Show.all.where("user_id = ?", current_user.id)
+    @shows = Show.where("user_id = ?", current_user.id)
   end
 
   private
 
-  def set_show
+  def set_show!
     @show = Show.find(params[:id])
   end
 

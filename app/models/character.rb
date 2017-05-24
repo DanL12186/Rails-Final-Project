@@ -7,6 +7,7 @@ class Character < ApplicationRecord
   belongs_to :show
 
   validates :name, presence: true
+  validates :name, length: {minimum: 2}
   validates :name, uniqueness: { scope: :show }
 
   def show_attributes=(show)
