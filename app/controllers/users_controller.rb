@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user!, only: [:show, :edit, :update, :destroy]
+  before_action :deny_unauthorized_access, only: [:edit, :update, :destroy]
 
   def new
     redirect_if_logged_in
@@ -18,10 +19,6 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     @user.valid? ? (redirect_to root_path) : (redirect_to edit_user_path)
-  end
-
-  def index
-    @users = User.all
   end
 
   def destroy
