@@ -1,5 +1,8 @@
 <h1> Sign in </h1>
 
+<%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+<br>
+
 <%= form_for @user, url: url_for(controller: 'sessions', action: 'create') do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %> <br>
