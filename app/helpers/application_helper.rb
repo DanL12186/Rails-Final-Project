@@ -16,4 +16,12 @@ module ApplicationHelper
     index.sort_by { |show| show.name.length }
   end
 
+  def number_to_word(number)
+    numbers = {
+      1=>"One", 2=>"Two", 3=>"Three", 4=>"Four", 5=>"Five",
+      6=>"Six", 7=>"Seven", 8=>"Eight", 9=>"Nine"
+     }
+    numbers.select { |num| number == num }.values.join
+  end
+
 end
