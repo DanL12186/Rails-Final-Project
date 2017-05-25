@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def happiest
-    @shows.select {|show| !show.characters.empty?}.max_by { |show| show.happiness }
+    @shows.max_by { |show| show.happiness }
   end
 
   def sort_by_name_length(index)
