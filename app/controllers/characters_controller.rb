@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
   before_action :set_user_characters, only: [:index, :favorite_characters]
+  before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
 
   def new
     @character = Character.new
@@ -11,10 +12,6 @@ class CharactersController < ApplicationController
     @character.valid? ? (redirect_to user_show_characters_path) : (render :new)
   end
 
-  def edit
-    redirect_to root_path unless current_user.id == @character.show.user_id
-  end
-
   def update
     @character.update(character_params)
     @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to edit_user_show_character_path)
@@ -23,9 +20,6 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
     redirect_to user_show_characters_path
-  end
-
-  def favorite_characters
   end
 
   private
