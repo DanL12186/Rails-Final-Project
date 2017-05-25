@@ -22,5 +22,4 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.id == params[:id].to_i || current_user.id == params[:user_id].to_i
   end
 
-
 end

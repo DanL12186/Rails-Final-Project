@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <h2> Whoops! </h2>
-  <div id="error_explanation" class= "fields_with_errors">
+  <div id="error_explanation" class= "field_with_errors">
     <h2> <%= number_to_word(object.errors.count) %> error(s) prevented this object from being saved: </h2>
     <ul>
     <% object.errors.full_messages.each do |message| %>
