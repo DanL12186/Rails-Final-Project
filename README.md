@@ -8,7 +8,7 @@
 
   (Note that this project runs by default on Rails 5.1 or later, which requires Ruby v2.2.2 and above. It will likely run on Rails ~4.2, which runs just fine on Ruby 2.0.0. You will however have to delete the GemFile.lock, and modify the Rails version in the GemFile. You may or may not have to tweak other gem versions.)
 
-  The test suite can be run with the following command, sans single quotes: 'rails test test/folder_name/test_name.rb' (e.g. 'rails test test/controllers/users_controller_test.rb')
+  The test suite can be run with the following command, sans single quotes: 'rails test test/folder_name/test_name.rb' (e.g. 'rails test test/controllers/users_controller_test.rb'). Alternatively, 'rails test' will run all tests.
 
   If you run into any issues that weren't there before, resetting the cache via the 'rake tmp:cache:clear' command may solve them.
 
