@@ -13,8 +13,7 @@ class ShowsController < ApplicationController
   end
 
   def update
-    @show.update(show_params)
-    @show.valid? ? (redirect_to user_show_path(@show)) : (redirect_to edit_user_show_path(@show))
+    @show.update(show_params) ? (redirect_to user_show_path(@show)) : (render :edit)
   end
 
   def destroy

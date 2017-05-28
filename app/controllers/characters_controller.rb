@@ -13,8 +13,7 @@ class CharactersController < ApplicationController
   end
 
   def update
-    @character.update(character_params)
-    @character.valid? ? (redirect_to user_show_character_path(@character)) : (redirect_to edit_user_show_character_path)
+    @character.update(character_params) ? (redirect_to user_show_character_path(@character)) : (render :edit)
   end
 
   def destroy

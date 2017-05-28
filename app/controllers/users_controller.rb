@@ -17,8 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    @user.valid? ? (redirect_to root_path) : (redirect_to edit_user_path)
+    @user.update(user_params) ? (redirect_to root_path) : (render :edit)
   end
 
   def destroy
