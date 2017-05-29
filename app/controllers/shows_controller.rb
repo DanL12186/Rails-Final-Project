@@ -32,7 +32,7 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:name, :user_id, characters_attributes: [:id, :note, :show_id, :dislike, :deceased, :name])
+    params.require(:show).permit(:name, :user_id, characters_attributes: [:note, :show_id, :dislike, :deceased, :name]) #add id for nested_attributes
   end
 
 end
