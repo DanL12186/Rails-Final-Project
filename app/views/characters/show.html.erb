@@ -10,6 +10,8 @@
 
 <br>
 
+<div> <%= @character.quote %> </div>
+
 <h3>
   <%= link_to "Edit #{@character.name}", edit_user_show_character_path(current_user, @character.show, @character) %>
   <br>
