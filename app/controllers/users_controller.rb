@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user!, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_logged_in, except: [:new, :create]
   before_action :deny_unauthorized_access, only: [:edit, :update, :destroy]
 
   def new
