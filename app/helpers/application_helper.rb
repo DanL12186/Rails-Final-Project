@@ -20,7 +20,10 @@ module ApplicationHelper
       1=>"One", 2=>"Two", 3=>"Three", 4=>"Four", 5=>"Five",
       6=>"Six", 7=>"Seven", 8=>"Eight", 9=>"Nine"
      }
-    numbers.select { |num| number == num }.values.join
+    numbers.detect { |num| num[0] == number }[1]
   end
 
+  def icons
+    icons = ["/assets/favicon-red.ico", "/assets/favicon.ico"].sample
+  end
 end
