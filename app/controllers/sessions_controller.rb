@@ -28,11 +28,11 @@ class SessionsController < ApplicationController
    redirect_to root_path #required to get OmniAuth to work right
  end
 
- protected
+  protected
 
- def auth
+  def auth
    request.env['omniauth.auth']
- end
+  end
 
   private
 

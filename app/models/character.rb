@@ -6,6 +6,6 @@ class Character < ApplicationRecord
 
   belongs_to :show
 
-  validates :name, length: {minimum: 2}, uniqueness: { scope: :show }
+  validates :name, length: { minimum: 2 }, uniqueness: { scope: :show }
 
 end
