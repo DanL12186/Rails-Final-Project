@@ -3,6 +3,8 @@ class Show < ApplicationRecord
   belongs_to :user
   has_many :characters, dependent: :destroy
 
+  # accepts_nested_attributes_for :characters, reject_if: lambda { |character| character[:name].blank? }
+
   validates :name, length: { minimum: 2 }
   validates :user_id, presence: true
 
@@ -18,5 +20,4 @@ class Show < ApplicationRecord
       self.characters.reject { |char| char.destroy if char.name.blank? }
     end
   end
-
 end
