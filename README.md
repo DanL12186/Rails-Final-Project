@@ -4,7 +4,7 @@
 
   Note: This application has only been tested on Rails 5.1 running Ruby 2.4.1.
 
-  Installation should be relatively simple; simply fork, clone, download or otherwise acquire the repo, cd into the directory and bundle install. Run the migrations with rake db:migrate (or, optionally, rails db:migrate in Rails 5+), and then start the server with rails s. You may wish to open a second terminal tab (if supported by your IDE/environment) in order to simultaneously run the rails console ('rails c').
+  Installation should be relatively simple; simply fork, clone, download or otherwise acquire the repo, cd into the directory and bundle install. Run the migrations with rake db:migrate (or, optionally, rails db:migrate in Rails 5+), and then start the server with rails s, or rails server if you really enjoy typing. You may wish to open a second terminal tab (if supported by your IDE/environment) in order to simultaneously run the rails console ('rails c').
 
   (Note that this project runs by default on Rails 5.1 or later, which requires Ruby v2.2.2 and above. It will likely run on Rails ~4.2, which runs just fine on Ruby 2.0.0. You will however have to delete the GemFile.lock, and modify the Rails version in the GemFile. You may or may not have to tweak other gem versions.)
 
