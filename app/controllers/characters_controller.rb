@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_characters, only: [:index, :favorite_characters]
+  before_action :set_user_characters, only: [:index]
   before_action :redirect_if_not_logged_in
   before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
 
@@ -20,6 +20,10 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
     redirect_to user_show_characters_path
+  end
+
+  def favorite_characters
+    @characters = current_user.favorite_characters
   end
 
   private
