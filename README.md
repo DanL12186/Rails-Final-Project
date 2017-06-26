@@ -33,3 +33,4 @@
 ## License
 
   The application is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+# Rails-Final-Project-with-jQuery-Front-End
