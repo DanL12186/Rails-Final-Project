@@ -4,6 +4,4 @@
 
 <h1> Your characters </h1>
 
-<% @characters.each do |char| %> <!-- rendering a partial inside a loop comes with serious performance issues (reloads and guaranteed cache misses) -->
-  <%= render partial: "index", locals: { char: char } %>
-<% end %>
+<%= render partial: "index", locals: { characters: @characters } %>

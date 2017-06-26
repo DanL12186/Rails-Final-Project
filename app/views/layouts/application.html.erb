@@ -6,21 +6,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
-
     <!--background image --><!--background image -->
-    <style>
-    body {
+    <!-- /*<style>*/ -->
+    <!-- /*body {
         background-image: url('');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: bottom;
-    }
-    </style>
+    }*/ -->
+    <!-- </style> -->
     <!-- /background-image -->
   </head>
 
   <ul>
   <body>
+  <%= render "layouts/scripts" %> <!-- link_modifying script -->
     <!--  navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">

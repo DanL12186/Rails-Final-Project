@@ -1,5 +1,4 @@
 <center> <h1> Favorite living characters: </h1> </center>
 
-<% @characters.like.alive.map { |char| char }.each do |char| %> <!--partials in loops slow; .sort_by { |char| char.show_id } before .each to sort by show-->
-  <%= render partial: "index", locals: { char: char } %>
-<% end %>
+<!--partials in loops slow; .sort_by { |char| char.show_id } before .each to sort by show-->
+  <%= render partial: "index", locals: { characters: @characters } %>

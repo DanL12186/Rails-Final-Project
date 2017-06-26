@@ -2,10 +2,10 @@
 <br>
 
 <% if logged_in? %>
-  <h4> <%= link_to "View Shows", user_shows_path(current_user) %> </h4>
-  <h4> <%= link_to "Add New Show", new_user_show_path(current_user) %> </h4>
-  <h4> <%= link_to "Create New Character", new_user_show_character_path(current_user, "all") %> </h4>
-  <h4> <%= link_to "View all Characters", user_show_characters_path(current_user, "all", @characters) %> </h4>
+  <h4> <%= link_to "View Shows", user_shows_path(current_user), class: "link" %> </h4>
+  <h4> <%= link_to "Add New Show", new_user_show_path(current_user), class: "link" %> </h4>
+  <h4> <%= link_to "Create New Character", new_user_show_character_path(current_user, "all"), class: "link" %> </h4>
+  <h4> <%= link_to "View all Characters", user_show_characters_path(current_user, "all", @characters), class: "link" %> </h4>
 <% end %>
 
 <% if logged_in? %>

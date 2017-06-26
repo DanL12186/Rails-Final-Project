@@ -1,5 +1,7 @@
 {
   "name": "Rails-Final",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
 }

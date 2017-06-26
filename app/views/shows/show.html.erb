@@ -3,11 +3,13 @@
 <h1> <%= @show.name %> </h1>
 
 <% @show.characters.each do |char| %>
-  <h3><%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id)%> </h3>
+  <h3><%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id), class: "link" %></h3>
 <% end %>
 
 <h2>Current happiness with show: <%= @show.happiness %>%</h2>
 
 <h2><%= button_to "Add character", new_user_show_character_path(current_user, @show), method: :get %></h2>
 <br>
-<center><h2><%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete %></center>
+
+<center><h2>
+<%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete, data: { confirm: "Delete #{@show.name}?" } %>
