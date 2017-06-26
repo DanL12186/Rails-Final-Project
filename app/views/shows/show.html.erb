@@ -10,4 +10,4 @@
 
 <h2><%= button_to "Add character", new_user_show_character_path(current_user, @show), method: :get %></h2>
 <br>
-<center><h2><%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete %></center>
+<%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete, data: { confirm: "Delete #{@show.name}?" } %>
