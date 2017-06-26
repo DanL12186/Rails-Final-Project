@@ -1,12 +1,12 @@
 <ul>
 
-<h3><%= link_to "View all your characters", user_show_characters_path(current_user, "all"), class: "link" %></h3>
-<h2><%= link_to "Add new show", new_user_show_path, class: "link" %></h2>
+<h3><%= link_to "View all your characters", user_show_characters_path(current_user, "all") %></h3>
+<h2><%= link_to "Add new show", new_user_show_path %></h2>
 
 <h1>Your shows:</h1>
 
 <% sort_by_name_length(@shows).reverse.each do |show| %>
-  <h3> <%= link_to show.name, user_show_path(show.user_id, show.id), class: "link" %> </h3>
+  <h3> <%= link_to show.name, user_show_path(show.user_id, show.id) %> </h3>
 <% end %>
 
 <br>
