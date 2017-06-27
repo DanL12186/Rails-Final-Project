@@ -2,6 +2,20 @@
   <h2> Name: <%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id) %> </h2>
   <h3> Status: <%= char.status %> </h3>
   <h3> Classification: <%= char.hero? %> </h3>
-  <h3> Notes: <%= char.note %> </h3>
+  <h3 id="note-<%= char.id %>"> Notes: <%= char.note.truncate(30) %> </h3>
+  <button class="js-more" data-id="<%= char.id %>" data-uid="<%= params[:user_id]%>">More...</button>
   <br>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").click(function() {
+    let id = $(this).data("id");
+    let uid = $(this).data("uid");
+
+    $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
+      $(`#note-${id}`).html(`Note: ${charData["note"]}`);
+    });
+  });
+});
+</script>
