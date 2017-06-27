@@ -3,7 +3,8 @@
   <h3> Status: <%= char.status %> </h3>
   <h3> Classification: <%= char.hero? %> </h3>
   <h3 id="note-<%= char.id %>"> Notes: <%= char.note.truncate(30) %> </h3>
-  <button class="js-more" data-id="<%= char.id %>" data-uid="<%= params[:user_id]%>">More...</button>
+  <h3 id="quote-<%= char.id %>"> </h3>
+  <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= params[:user_id]%>">More...</button>
   <br>
 <% end %>
 
@@ -12,9 +13,13 @@ $(function () {
   $(".js-more").click(function() {
     let id = $(this).data("id");
     let uid = $(this).data("uid");
+    let sid = $(this).data("sid");
+    let edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
 
     $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
       $(`#note-${id}`).html(`Note: ${charData["note"]}`);
+      //display quote if exists, else render edit link
+      charData["quote"] ? $(`#quote-${id}`).html(`Quote: ${charData["quote"]}`) : $(`#quote-${id}`).html(edit);
     });
   });
 });
