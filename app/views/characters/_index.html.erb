@@ -4,7 +4,7 @@
   <h3> Classification: <%= char.hero? %> </h3>
   <h3 id="note-<%= char.id %>"> Notes: <%= char.note.truncate(30) %> </h3>
   <h3 id="quote-<%= char.id %>"> </h3>
-  <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= params[:user_id]%>">More...</button>
+  <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= char.user.id%>">More...</button>
   <br>
 <% end %>
 
