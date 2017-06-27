@@ -27,13 +27,15 @@ $(function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
     let uid = $(".js-next").attr("data-uid");
+    let sid = $(".js-next").attr("data-sid")
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
       $(".name").text(character.name); //dot notation wors fine for json objects
       $(".note").text(character.note);
-      $(".quote").text(character.quote);
+      $(".quote").text(character.quote ? character.quote : '');
       $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
       $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
+      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
       // re-set the id to current on the link
       $(".js-next").attr("data-id", character["id"]);
     });
