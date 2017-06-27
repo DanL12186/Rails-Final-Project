@@ -6,13 +6,13 @@
 
 <h3 class="hero"> <%= @character.hero? %> </h3>
 
-<h3> Status: <%= @character.status %> </h3>
+<h3 class="status"> Status: <%= @character.status %> </h3>
 
 <div class="note"> <%= @character.note %> </div>
 
 <br>
 
-<div> <%= @character.quote %> </div>
+<div class="quote"> <%= @character.quote %> </div>
 
 <h3>
   <%= link_to "Edit #{@character.name}", edit_user_show_character_path(current_user, @character.show, @character) %>
@@ -29,8 +29,11 @@ $(function () {
     let uid = $(".js-next").attr("data-uid");
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
-      $(".name").text(character["name"]);
-      $(".note").text(character["note"]);
+      $(".name").text(character.name); //dot notation wors fine for json objects
+      $(".note").text(character.note);
+      $(".quote").text(character.quote);
+      $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
+      $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
       // re-set the id to current on the link
       $(".js-next").attr("data-id", character["id"]);
     });
