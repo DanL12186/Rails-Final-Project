@@ -1,6 +1,5 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_characters, only: [:index]
   before_action :redirect_if_not_logged_in
   before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
 
@@ -13,6 +12,13 @@ class CharactersController < ApplicationController
     @character.valid? ? (redirect_to user_show_characters_path) : (render :new)
   end
 
+  def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @character}
+    end
+  end
+
   def update
     @character.update(character_params) ? (redirect_to user_show_character_path(@character)) : (render :edit)
   end
@@ -20,6 +26,10 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
     redirect_to user_show_characters_path
+  end
+
+  def index
+    @characters = current_user.characters
   end
 
   def favorite_characters
@@ -30,10 +40,6 @@ class CharactersController < ApplicationController
 
   def set_character
     @character = Character.find(params[:id])
-  end
-
-  def set_user_characters
-    @characters = current_user.characters
   end
 
   def character_params
