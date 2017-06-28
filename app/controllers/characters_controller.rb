@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    @character.destroy
+    @character.destroy if @character.user == current_user
     redirect_to user_show_characters_path
   end
 
