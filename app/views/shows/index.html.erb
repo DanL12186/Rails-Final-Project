@@ -6,7 +6,10 @@
 <h1>Your shows:</h1>
 
 <% sort_by_name_length(@shows).reverse.each do |show| %>
-  <h3> <%= link_to show.name, user_show_path(show.user_id, show.id) %> </h3>
+  <h3 class="js-shows" data-uid="<%= show.user.id %>" data-sid="<%= show.id %>">
+  <%= link_to show.name, user_show_path(show.user_id, show.id) %>
+  </h3>
+  <div id="chars-<%=show.id%>"></div>
 <% end %>
 
 <br>
@@ -14,3 +17,25 @@
 <h3> Happiest Show: <%= happiest.try(:name) %> </h3>
 
 </ul>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $(".js-shows").on("click", function(event) {
+      const uid = $(this).data("uid");
+      const sid = $(this).data("sid");
+      const charDiv = $(`#chars-${sid}`)
+
+      if (charDiv.html() === '') { //fire following and display info unless previously done
+
+        event.preventDefault();
+
+        $.get(`/users/${uid}/shows/${sid}.json`, function(showData) {
+          showData.characters.map(function(character) {
+            charDiv.append(`<ul><li>${character.name}</li></ul>`) //append names and quotes to div
+            charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
+          });
+        });
+      };
+    });
+  });
+</script>
