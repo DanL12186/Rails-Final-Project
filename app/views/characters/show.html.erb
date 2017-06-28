@@ -30,11 +30,11 @@
   $(function () {
     $(".js-next").on("click", function(event) {
       event.preventDefault();
-      let uid = $(".js-next").attr("data-uid");
-          sid = $(".js-next").attr("data-sid");
+      let uid = $(this).attr("data-uid"); //("js-next")
+          sid = $(this).attr("data-sid");
 
-          charIds = $(".js-next").data("array"); //index of character Ids from their shared show
-          counter = $(".js-next").data("index"); //current index of the characters array
+          charIds = $(this).data("array"); //index of character Ids from their shared show
+          counter = $(this).data("index"); //current index of the characters array
           nextId = charIds[counter];
 
       $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {

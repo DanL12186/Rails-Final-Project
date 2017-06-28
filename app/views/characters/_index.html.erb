@@ -12,10 +12,10 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $(".js-more").on("click", function() {
-      let id = $(this).data("id");
-      let uid = $(this).data("uid");
-      let sid = $(this).data("sid");
-      let edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
+      const id = $(this).data("id");
+      const uid = $(this).data("uid");
+      const sid = $(this).data("sid");
+      const edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
 
       $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
         $(`#note-${id}`).html(`Note: ${charData["note"]}`);
