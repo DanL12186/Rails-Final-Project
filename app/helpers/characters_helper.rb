@@ -12,4 +12,8 @@ module CharactersHelper
     self.dislike ? "Villain" : "Hero"
   end
 
+  def char_array
+    @array = self.show.characters.map {|char| char.id}
+  end
+
 end

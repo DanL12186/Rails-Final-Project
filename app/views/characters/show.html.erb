@@ -1,4 +1,4 @@
-<a href="#" class="js-next" data-uid="<%=current_user.id%>" data-id="<%=@character.id%>">Next Character...</a>
+<a href="#" class="js-next" data-uid="<%=current_user.id%>" data-index= 0 data-array="<%= @character.char_array %>">Next Character...</a>
 
 <h1 class = "name"> <%= @character.name %> </h1>
 
@@ -31,19 +31,24 @@ $(function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
     let uid = $(".js-next").attr("data-uid");
-    let sid = $(".js-next").attr("data-sid")
-    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+        sid = $(".js-next").attr("data-sid");
+
+        charIds = $(".js-next").data("array"); //index of character Ids from their shared show
+        counter = $(".js-next").data("index"); //current index of the characters array
+        nextId = charIds[counter];
+
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
-      $(".name").text(character.name); //dot notation wors fine for json objects
+
+      $(".name").text(character.name);
       $(".note").text(character.note);
       $(".quote").text(character.quote ? character.quote : '');
       $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
       $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
-      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`) //get rid of this if I figure out how to scope within shows.
+      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
       $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
       $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
-      // re-set the id to current on the link
-      $(".js-next").attr("data-id", character["id"]);
+      // reset the counter (data-index) to 0 if array end is reached, else increment
+      counter === (charIds.length - 1) ? $(".js-next").data("index", 0) : $(".js-next").data("index", counter += 1);
     });
   });
 });
