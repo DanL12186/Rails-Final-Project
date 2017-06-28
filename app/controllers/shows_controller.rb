@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
   before_action :set_show!, only: [:edit, :show, :update, :destroy]
   before_action :redirect_if_not_logged_in
-  before_action :deny_unauthorized_access, only: [:new, :edit, :destroy]
+  before_action :deny_unauthorized_access, only: [:show, :new, :edit, :destroy]
 
   def new
     @show = Show.new
@@ -11,6 +11,13 @@ class ShowsController < ApplicationController
   def create
     @show = Show.new(show_params)
     @show.save ? (redirect_to user_shows_path(current_user)) : (render :new)
+  end
+
+  def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @show } #render json: @show.characters
+    end
   end
 
   # def update

@@ -1,4 +1,3 @@
 class CharacterSerializer < ActiveModel::Serializer
-  attributes :id, :note, :quote, :name, :deceased, :dislike, :show# do show
-  #belongs_to :show
+  attributes :id, :note, :quote, :name, :deceased, :dislike, :show
 end
