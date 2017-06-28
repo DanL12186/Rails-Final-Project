@@ -1,4 +1,4 @@
-<a href="#" class="js-next" data-uid="<%=current_user.id%>" data-id="<%=@character.id%>">Next...</a>
+<a href="#" class="js-next" data-uid="<%=current_user.id%>" data-id="<%=@character.id%>">Next Character...</a>
 
 <h1 class = "name"> <%= @character.name %> </h1>
 
@@ -15,10 +15,14 @@
 <div class="quote"> <%= @character.quote %> </div>
 
 <h3>
+<div class="edit">
   <%= link_to "Edit #{@character.name}", edit_user_show_character_path(current_user, @character.show, @character) %>
-  <br>
+</div>
+
+<div class="delete">
   <%= link_to "Delete #{@character.name}", user_show_character_path(current_user, @character.show, @character), method: :delete %>
-  <br>
+</div>
+
   <%= link_to "View all your characters", user_show_characters_path %>
 </h3>
 
@@ -35,7 +39,9 @@ $(function () {
       $(".quote").text(character.quote ? character.quote : '');
       $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
       $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
-      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
+      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`) //get rid of this if I figure out how to scope within shows.
+      $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
+      $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
       // re-set the id to current on the link
       $(".js-next").attr("data-id", character["id"]);
     });
