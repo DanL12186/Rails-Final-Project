@@ -6,21 +6,22 @@
   <h3 id="quote-<%= char.id %>"> </h3>
   <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= char.user.id%>">More...</button>
   <br>
+  <br>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-more").click(function() {
-    let id = $(this).data("id");
-    let uid = $(this).data("uid");
-    let sid = $(this).data("sid");
-    let edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
+  $(function () {
+    $(".js-more").on("click", function() {
+      let id = $(this).data("id");
+      let uid = $(this).data("uid");
+      let sid = $(this).data("sid");
+      let edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
 
-    $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
-      $(`#note-${id}`).html(`Note: ${charData["note"]}`);
-      //display quote if exists, else render edit link
-      charData["quote"] ? $(`#quote-${id}`).html(`Quote: ${charData["quote"]}`) : $(`#quote-${id}`).html(edit);
+      $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
+        $(`#note-${id}`).html(`Note: ${charData["note"]}`);
+        //display quote if exists, else render edit link
+        charData["quote"] ? $(`#quote-${id}`).html(`Quote: ${charData["quote"]}`) : $(`#quote-${id}`).html(edit);
+      });
     });
   });
-});
 </script>

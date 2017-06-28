@@ -27,29 +27,29 @@
 </h3>
 
 <script type="text/javascript" charset="utf-8"> //currently looks at ALL ids, including cross-show, and nil
-$(function () {
-  $(".js-next").on("click", function(event) {
-    event.preventDefault();
-    let uid = $(".js-next").attr("data-uid");
-        sid = $(".js-next").attr("data-sid");
+  $(function () {
+    $(".js-next").on("click", function(event) {
+      event.preventDefault();
+      let uid = $(".js-next").attr("data-uid");
+          sid = $(".js-next").attr("data-sid");
 
-        charIds = $(".js-next").data("array"); //index of character Ids from their shared show
-        counter = $(".js-next").data("index"); //current index of the characters array
-        nextId = charIds[counter];
+          charIds = $(".js-next").data("array"); //index of character Ids from their shared show
+          counter = $(".js-next").data("index"); //current index of the characters array
+          nextId = charIds[counter];
 
-    $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
+      $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
 
-      $(".name").text(character.name);
-      $(".note").text(character.note);
-      $(".quote").text(character.quote ? character.quote : '');
-      $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
-      $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
-      $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
-      $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
-      $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
-      // reset the counter (data-index) to 0 if array end is reached, else increment
-      counter === (charIds.length - 1) ? $(".js-next").data("index", 0) : $(".js-next").data("index", counter += 1);
+        $(".name").text(character.name);
+        $(".note").text(character.note);
+        $(".quote").text(character.quote ? character.quote : "");
+        $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
+        $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
+        $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
+        $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
+        $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
+        // reset the counter (data-index) to 0 if array end is reached, else increment
+        counter === (charIds.length - 1) ? $(".js-next").data("index", 0) : $(".js-next").data("index", counter += 1);
+      });
     });
   });
-});
 </script>
