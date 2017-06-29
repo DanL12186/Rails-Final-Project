@@ -28,14 +28,14 @@
       if (charDiv.html() === '') { //fire following and display info unless previously done
 
         event.preventDefault();
-
         charDiv.toggle(); //make invisible w/o writing CSS.
+
         $.get(`/users/${uid}/shows/${sid}.json`, function(showData) {
           showData.characters.forEach(function(character) {
             charDiv.append(`<ul><li>${character.name}</li></ul>`)
             charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
 
-            charDiv.fadeIn(500) //now fade in
+            charDiv.fadeIn(750) //now fade in
           });
         });
       };
