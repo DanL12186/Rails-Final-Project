@@ -31,7 +31,7 @@
   <br><br>
 
   <div class="user" data-uid="<%=current_user.id%>">
-  <%= f.submit %>
+  <%= f.submit data: { disable_with: false } %>
   </div>
 
 <% end %>
@@ -58,9 +58,8 @@
         $("#newCharacters").append(newCharacter);
 
         $('form').trigger('reset');
-        $("form").attr("disabled", "b");
+        //$("form").attr("disabled", "b");
       });
     });
-    $('form').trigger('reset');
   });
 </script>
