@@ -5,7 +5,7 @@
 
 <h1>Your shows:</h1>
 
-<% sort_by_name_length(@shows).reverse.each do |show| %>
+<% sort_by_name_length(@shows).each do |show| %>
   <h3 class="js-shows" data-uid="<%= show.user.id %>" data-sid="<%= show.id %>">
   <%= link_to show.name, user_show_path(show.user_id, show.id) %>
   </h3>

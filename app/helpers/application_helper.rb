@@ -11,8 +11,8 @@ module ApplicationHelper
     @shows.max_by { |show| show.happiness }
   end
 
-  def sort_by_name_length(index)
-    index.sort_by { |show| show.name.length }
+  def sort_by_name_length(show_list)
+    show_list.sort_by { |show| show.name.length }.reverse
   end
 
   def number_to_word(number)
