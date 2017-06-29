@@ -9,13 +9,13 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.create(character_params)
-    @character.valid? ? (redirect_to user_show_characters_path) : (render :new)
+    @character.valid? ? (render json: @character, status: 201) : (render :new)#(redirect_to user_show_characters_path) : (render :new)
   end
 
   def show
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @character}
+      format.json { render json: @character }
     end
   end
 
