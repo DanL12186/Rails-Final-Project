@@ -18,9 +18,9 @@
       const edit = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a Quote</a>`
 
       $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
-        $(`#note-${id}`).html(`Note: ${charData["note"]}`);
+        $(`#note-${id}`).html(`Note: ${charData.note}`);
         //display quote if exists, else render edit link
-        charData["quote"] ? $(`#quote-${id}`).html(`Quote: ${charData["quote"]}`) : $(`#quote-${id}`).html(edit);
+        charData.quote ? $(`#quote-${id}`).html(`Quote: <em>${charData.quote}</em>`) : $(`#quote-${id}`).html(edit);
       });
     });
   });

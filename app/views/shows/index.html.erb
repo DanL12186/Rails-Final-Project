@@ -30,7 +30,7 @@
         event.preventDefault();
 
         $.get(`/users/${uid}/shows/${sid}.json`, function(showData) {
-          showData.characters.map(function(character) {
+          showData.characters.forEach(function(character) {
             charDiv.append(`<ul><li>${character.name}</li></ul>`) //append names and quotes to div
             charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
           });
