@@ -35,31 +35,3 @@
   </div>
 
 <% end %>
-
-<div id="newCharacters"></div>
-
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(function(event) { //$('form').on("click", function(event) {s
-      event.preventDefault();
-      // $("form").attr("disabled", false);
-      const uid = $(".user").data("uid");
-      const sid = $("#character_show_id").val() //collection_select val
-      const serializedForm = $(this).serialize();
-      const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
-
-      characterCreation.done(function(char) { //data currently character object
-        let quote = (char.quote ? char.quote : "")
-        let status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
-        let hero = (`${char.dislike ? "Villain" : "Hero"}`)
-
-        let newCharacter = `<div>${char.name} </div> <div>${char.note} </div> <div> ${quote} </div> <div> ${status} </div> <div>${hero}</div><br>`
-
-        $("#newCharacters").append(newCharacter);
-
-        $('form').trigger('reset');
-        //$("form").attr("disabled", "b");
-      });
-    });
-  });
-</script>
