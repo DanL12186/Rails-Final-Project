@@ -1,8 +1,8 @@
 <a href="#" class="js-next" data-uid="<%=current_user.id%>" data-index= 0 data-array="<%= @character.char_array %>">Next Character...</a>
 
-<h1 class = "name"> <%= @character.name %> </h1>
-
 <h2 class="show"> <%= link_to @character.show.name, user_show_path(current_user, @character.show) %> </h2>
+
+<h1 class = "name"> <%= @character.name %> </h1>
 
 <h3 class="hero"> <%= @character.hero? %> </h3>
 
@@ -26,12 +26,12 @@
   <%= link_to "View all your characters", user_show_characters_path %>
 </h3>
 
-<script type="text/javascript" charset="utf-8"> //currently looks at ALL ids, including cross-show, and nil
+<script type="text/javascript" charset="utf-8">
   $(function () {
     $(".js-next").on("click", function(event) {
       event.preventDefault();
-      let uid = $(this).attr("data-uid"); //("js-next")
-          sid = $(this).attr("data-sid");
+      let uid = $(this).attr("data-uid"); //("js-next"); .attr just left as a reminder
+          sid = $(this).data("sid");
 
           charIds = $(this).data("array"); //index of character Ids from their shared show
           counter = $(this).data("index"); //current index of the characters array
@@ -44,7 +44,7 @@
         $(".quote").text(character.quote ? character.quote : "");
         $(".status").text(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
         $(".hero").text(`${character.dislike ? "Villain" : "Hero"}`)
-        $(".show").html(`<a href="/users/${uid}/shows/${character.show.id}">${character.show.name}</a>`)
+
         $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
         $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
         // reset the counter (data-index) to 0 if array end is reached, else increment
