@@ -1,6 +1,22 @@
 # Specifications for the Rails Assessment
 
-Specs:
+jQuery Specs:
+- [x] Use jQuery for implementing new requirements
+- [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+- [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [ ] Translate JSON responses into js model objects.
+- [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
+
+Confirm
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
+
+
+Rails Specs:
 - [x] Using Ruby on Rails for the project
 
   **Running on Rails 5.1**
@@ -44,9 +60,9 @@ Specs:
   **Errors are displayed on page via an errors partial when validations fail**
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
 
-  **Did my best to limit redundancy and code smells, abstract logic into models and helpers, and use partials. Unsure if these are supposed to be checked during the assessment, so leaving them blank.**
+  **Did my best to limit redundancy and code smells, abstract logic into models and helpers, and use partials.**
