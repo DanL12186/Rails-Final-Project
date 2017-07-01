@@ -1,6 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-$(function () {
+$(document).on('turbolinks:load', function () { //ensure turbolinks without refresh
   $('form').submit(function(event) {
     event.preventDefault();
 
@@ -18,7 +18,7 @@ $(function () {
                             <div><em> ${char.quote} </em></div>
                             <div> ${status} </div>
                             <div> ${hero} </div>`
-
+      console.log(this)
       $("#newCharacters").append(newCharacter);
 
       $('form').trigger('reset');
