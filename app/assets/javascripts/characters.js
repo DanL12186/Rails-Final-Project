@@ -11,17 +11,30 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 
     characterCreation.done(function(char) { //data currently character object
 
-      const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
-      const hero = (char.dislike ? "Villain" : "Hero")
-      const newCharacter = `<h3> ${char.name} </h3>
-                            <div> ${char.note} </div>
-                            <div><em> ${char.quote} </em></div>
-                            <div> ${status} </div>
-                            <div> ${hero} </div>`
-      console.log(this)
-      $("#newCharacters").append(newCharacter);
+      function Character(char) {
+      	this.name = char.name;
+      	this.deceased = char.deceased
+      	this.dislike = char.dislike
+      	this.quote = char.quote
+      	this.note = char.note
+      	this.id = char.id
+      	this.show = char.show
+        this.toDom = function() {
 
-      $('form').trigger('reset');
+          const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
+          const hero = (this.dislike ? "Villain" : "Hero")
+          const newCharacter = `<h3> ${this.name} </h3>
+                                <div> ${this.note} </div>
+                                <div><em> ${this.quote} </em></div>
+                                <div> ${status} </div>
+                                <div> ${hero} </div>`
+
+          $("#newCharacters").append(newCharacter);
+          $('form').trigger('reset');
+        };
+      };
+      const character = new Character(char);
+      character.toDom();
     });
   });
 });
