@@ -32,9 +32,9 @@
 
         $.get(`/users/${uid}/shows/${sid}.json`, function(showData) {
           showData.characters.forEach(function(character) {
-            charDiv.append(`<ul><li>${character.name}</li></ul>`)
-            charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
 
+            charDiv.append(`<ul><li><a href="/users/${uid}/shows/${sid}/characters/${character.id}">${character.name}</a</li></ul>`)
+            charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
             charDiv.fadeIn(750) //now fade in
           });
         });

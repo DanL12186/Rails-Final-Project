@@ -1,3 +1,3 @@
 class ShowCharacterSerializer < ActiveModel::Serializer
-  attributes :name, :note
+  attributes :id, :name, :note
 end
