@@ -15,9 +15,10 @@
       const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
 
       characterCreation.done(function(char) { //data currently character object
+        debugger;
 
         const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
-        const hero = (`${char.dislike ? "Villain" : "Hero"}`)
+        const hero = (char.dislike ? "Villain" : "Hero")
         const newCharacter = `<h3> ${char.name} </h3>
                               <div> ${char.note} </div>
                               <div><em> ${char.quote} </em></div>
