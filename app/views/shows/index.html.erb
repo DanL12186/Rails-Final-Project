@@ -35,8 +35,9 @@
 
             charDiv.append(`<ul><li><a href="/users/${uid}/shows/${sid}/characters/${character.id}">${character.name}</a</li></ul>`)
             charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
-            charDiv.fadeIn(750) //now fade in
+            charDiv.fadeIn(900) //now fade in
           });
+          //charDiv.slideDown(400); alternatively slideDown works here.
         });
       };
     });
