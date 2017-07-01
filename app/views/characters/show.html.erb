@@ -30,7 +30,7 @@
   $(function () {
     $(".js-next").on("click", function(event) {
       event.preventDefault();
-      let uid = $(this).attr("data-uid"); //("js-next"); .attr just left as a reminder
+      let uid = $(this).data("uid"); //("js-next"); .data("uid") === .attr("data-uid")
           sid = $(this).data("sid");
 
           charIds = $(this).data("array"); //index of character Ids from their shared show
