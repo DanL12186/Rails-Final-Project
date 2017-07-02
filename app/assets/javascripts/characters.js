@@ -83,7 +83,7 @@ $(document).on('turbolinks:load', function () {
       $(`#note-${id}`).html(`Note: ${charData.note}`);
       //display quote if exists, else render edit link
       charData.quote ? $(`#quote-${id}`).html(`Quote: <em>${charData.quote}</em>`) : $(`#quote-${id}`).html(addQuote);
-      charData.note ? $(`#note-${id}`).html(`Notes: <em>${charData.note}</em>`) : $(`#note-${id}`).html(addNote);
+      charData.note ? $(`#note-${id}`).html(`Notes: ${charData.note}`) : $(`#note-${id}`).html(addNote);
     });
   });
 });
