@@ -69,3 +69,21 @@ $(document).on('turbolinks:load', function () {
     });
   });
 });
+
+//JS-MORE for viewing more info (quotes and notes) on character index page for a given character
+$(document).on('turbolinks:load', function () {
+  $(".js-more").on("click", function() {
+    const id = $(this).data("id");
+    const uid = $(this).data("uid");
+    const sid = $(this).data("sid");
+    const addQuote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a quote</a>`
+    const addNote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a note</a>`
+
+    $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
+      $(`#note-${id}`).html(`Note: ${charData.note}`);
+      //display quote if exists, else render edit link
+      charData.quote ? $(`#quote-${id}`).html(`Quote: <em>${charData.quote}</em>`) : $(`#quote-${id}`).html(addQuote);
+      charData.note ? $(`#note-${id}`).html(`Notes: <em>${charData.note}</em>`) : $(`#note-${id}`).html(addNote);
+    });
+  });
+});
