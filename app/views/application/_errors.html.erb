@@ -4,7 +4,7 @@
     <h2> <%= number_to_word(object.errors.size) %> <%= (pluralize(object.errors.size, "error")).split(' ')[1] %> prevented this object from being saved: </h2>
     <ul>
     <% object.errors.full_messages.each do |message| %>
-      <li style="color:red;"> <%= message %> </li>
+      <li class = "error"> <%= message %> </li>
       <br>
     <% end %>
     </ul>

@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ a:visited {
+  font-size: 200%;
+  color: blue;
+ };

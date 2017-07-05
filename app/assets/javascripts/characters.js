@@ -47,7 +47,6 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 $(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
-    console.log("HI")
     let uid = $(this).data("uid"); //("js-next"); .data("uid") === .attr("data-uid")
         sid = $(this).data("sid");
 
