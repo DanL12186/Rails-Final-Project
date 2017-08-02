@@ -1,4 +1,3 @@
 <center> <h1> Favorite living characters: </h1> </center>
-
-<!--partials in loops slow; .sort_by { |char| char.show_id } before .each to sort by show-->
+<!-- .sort_by { |char| char.show_id } before .each to sort by show-->
   <%= render partial: "index", locals: { characters: @characters } %>

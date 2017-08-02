@@ -16,4 +16,9 @@ module CharactersHelper
     @array = self.show.characters.pluck(:id)
   end
 
+  # def index_start
+  #   @character.char_array.find_index(@character.id) #works in view but not here yet
+  #   #@index +=1 if @index <= (@character.char_array.length - 1)
+  # end
+
 end
