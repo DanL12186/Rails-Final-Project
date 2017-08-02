@@ -25,4 +25,19 @@ $(document).on('turbolinks:load', function () {
       });
     };
   });
+    // add event listern to button that shows or hides the form
+
+      $("#add_character").on("click", function() {
+        const form = $("#shows_character_form")[0]
+        const display = form.style.display
+
+        if (!display) {
+          form.style.display = 'block';
+          this.innerHTML = "Cancel"
+
+      } else {
+          form.style.display = '';
+          this.innerHTML = "Add Character"
+        }
+    });
 });
