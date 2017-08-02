@@ -9,9 +9,16 @@
 
 <h2>Current happiness with show: <%= @show.happiness %>%</h2>
 
-<h2><%= button_to "Add character", new_user_show_character_path(current_user, @show), method: :get %></h2>
+<button id="add_character">Add Character</button>
 <br>
 
-<center><h2>
 
-<%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete, data: { confirm: "Delete #{@show.name}?" } %>
+<div id="shows_character_form">
+  <br>
+  <br>
+  <%= render partial: "characters/form", locals: { show: @show, character: @show.characters.build } %>
+</div>
+
+<center>
+  <%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete, data: { confirm: "Delete #{@show.name}?" } %>
+</center>
