@@ -1,12 +1,25 @@
 <script type = "text/javascript" charset="UTF-8">
- $(function() {
-   $("a").on("mouseover", function(event) {
+ $(function() { //$(document).on("ajaxComplete") works for ajax links.
+   $("a").on("mouseover", function() {
        this.style.color = "#368BC1"; //"Glacial blue ice"
        this.style.fontSize = "105%";
     });
-   $("a").on("mouseout", function(event) {
+   $("a").on("mouseout", function() {
        this.style.color = "";
        this.style.fontSize = "100%";
     });
  });
+</script>
+
+<script type = "text/javascript">
+  $(function() {
+    $("input, textarea").on("focus", function() { //multiple types separated by commas
+      this.style.backgroundColor = "lavender";
+      this.style.opacity = 0.5
+    });
+    $("input, textarea").on("blur", function() {
+      this.style.backgroundColor = "white";
+      this.style.opacity = 1
+    });
+  });
 </script>
