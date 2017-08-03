@@ -1,4 +1,4 @@
-<%= form_for [current_user, show, character] do |f| %>
+<%= form_for [user, show || :show, character] do |f| %>
   <%= render partial: "errors", locals: { object: character } %>
 
   <%= f.label "Character name" %>
@@ -31,7 +31,7 @@
   <br><br>
 
   <div class="user" data-uid="<%=current_user.id%>">
-  <%= f.submit data: { disable_with: false } %>
+    <%= f.submit data: { disable_with: false } %>
   </div>
 
   <div id="newCharacters"></div>
