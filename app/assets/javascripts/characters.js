@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 $(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
-    let uid = $(this).data("uid"); //("js-next"); .data("uid") === .attr("data-uid")
+    const uid = $(this).data("uid"); //("js-next"); .data("uid") === .attr("data-uid")
         sid = $(this).data("sid");
 
         charIds = $(this).data("array"); //index of character Ids from their shared show

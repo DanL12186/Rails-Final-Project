@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function () {
 
           charDiv.append(`<ul><li><a href="/users/${uid}/shows/${sid}/characters/${character.id}">${character.name}</a</li></ul>`)
           charDiv.append(`<ul><em>${character.note}</em></ul><br>`)
-          charDiv.fadeIn(900) //now fade in
+          charDiv.fadeIn(900)
         });
         //charDiv.slideDown(400); alternatively slideDown works here.
       });
@@ -32,17 +32,16 @@ $(document).on('turbolinks:load', function () {
 
       if (display !== "block") {    // if (!display) form.style.display = 'block';
         form.slideDown(450)
-        this.innerHTML = "Cancel"
+        this.innerHTML = "Hide Form"
 
     } else {
         form.slideUp(450)
         this.innerHTML = "Add Character"
       }
-  });
+   });
 
     if ($("h1").html() !== " New character ") {
       $("#new_character").on("submit", function(event) {
-
         event.preventDefault();
 
         const uid = $(".user").data("uid");
@@ -51,10 +50,8 @@ $(document).on('turbolinks:load', function () {
         const serializedForm = $(this).serialize();
         const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
 
-        characterCreation.done(function(char) { //data currently character object
-
+        characterCreation.done(function(char) {
           const newCharacter = `<h3> <a href="/users/${uid}/shows/${sid}/characters/${char.id}">${char.name}</a> </h3>`
-
           $("#jQuery_add_characters").append(newCharacter);
           $('form').trigger('reset');
        });
