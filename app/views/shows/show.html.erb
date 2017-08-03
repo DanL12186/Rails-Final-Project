@@ -7,18 +7,18 @@
   <h3><%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id) %></h3>
 <% end %>
 
+<div id = "jQuery_add_character"></div>
+
 <h2>Current happiness with show: <%= @show.happiness %>%</h2>
 
 <button id="add_character">Add Character</button>
 <br>
 
-
 <div id="shows_character_form">
-  <br>
-  <br>
-  <%= render partial: "characters/form", locals: { show: @show, character: @show.characters.build } %>
+  <br><br>
+  <%= render partial: "characters/form", locals: { show: @show, character: @show.characters.build, user: current_user } %>
 </div>
 
-<center>
+<center><h2>
   <%= link_to "Delete #{@show.name}", user_show_path(current_user, @show), method: :delete, data: { confirm: "Delete #{@show.name}?" } %>
-</center>
+</center></h2>
