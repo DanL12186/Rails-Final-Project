@@ -40,7 +40,8 @@ $(document).on('turbolinks:load', function () {
       }
   });
 
-      $("shows_character_form").on("submit", function(event) {
+    if ($("h1").html() !== " New character ") {
+      $("#new_character").on("submit", function(event) {
 
         event.preventDefault();
 
@@ -54,9 +55,9 @@ $(document).on('turbolinks:load', function () {
 
           const newCharacter = `<h3> <a href="/users/${uid}/shows/${sid}/characters/${char.id}">${char.name}</a> </h3>`
 
-          $("#jQuery_add_character").append(newCharacter);
+          $("#jQuery_add_characters").append(newCharacter);
           $('form').trigger('reset');
-
-        });
+       });
     });
- });
+  };
+});
