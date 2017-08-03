@@ -26,18 +26,37 @@ $(document).on('turbolinks:load', function () {
     };
   });
     // add event listern to button that shows or hides the form
+    $("#add_character").on("click", function() {
+      const form = $("#shows_character_form")//[0]
+      const display = form[0].style.display
 
-      $("#add_character").on("click", function() {
-        const form = $("#shows_character_form")[0]
-        const display = form.style.display
+      if (display !== "block") {    // if (!display) form.style.display = 'block';
+        form.slideDown(450)
+        this.innerHTML = "Cancel"
 
-        if (!display) {
-          form.style.display = 'block';
-          this.innerHTML = "Cancel"
+    } else {
+        form.slideUp(450)
+        this.innerHTML = "Add Character"
+      }
+  });
 
-      } else {
-          form.style.display = '';
-          this.innerHTML = "Add Character"
-        }
+      $("shows_character_form").on("submit", function(event) {
+
+        event.preventDefault();
+
+        const uid = $(".user").data("uid");
+        const sid = $("#character_show_id").val() //collection_select val
+
+        const serializedForm = $(this).serialize();
+        const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
+
+        characterCreation.done(function(char) { //data currently character object
+
+          const newCharacter = `<h3> <a href="/users/${uid}/shows/${sid}/characters/${char.id}">${char.name}</a> </h3>`
+
+          $("#jQuery_add_character").append(newCharacter);
+          $('form').trigger('reset');
+
+        });
     });
-});
+ });
