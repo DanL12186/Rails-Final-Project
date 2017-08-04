@@ -9,7 +9,7 @@
 <% end %>
 
 <% if logged_in? %>
-  <center> <%= link_to (image_tag "happy-tv.jpg", size: "640x640", title: "view your shows"), user_shows_path(current_user) %>
+  <center> <%= link_to (image_tag "happy-tv.jpg", id: "happy_tv", size: "640x640", title: "view your shows"), user_shows_path(current_user) %>
 <% else %>
   <center> <%= image_tag "happy-tv.jpg", size: "640x640" %>
 <% end %>

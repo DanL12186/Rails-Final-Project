@@ -15,11 +15,22 @@
   $(function() {
     $("input, textarea").on("focus", function() { //multiple types separated by commas
       this.style.backgroundColor = "lavender";
-      this.style.opacity = 0.5
+      this.style.opacity = 0.75
     });
     $("input, textarea").on("blur", function() {
       this.style.backgroundColor = "white";
       this.style.opacity = 1
     });
   });
+</script>
+
+<script type = "text/javascript">
+  $(function() {
+    $("#happy_tv").on("mouseover",function() {
+      $(this).animate({margin: "-40px"});
+      $(this).animate({margin: "0px"});
+      $(this).animate({width: "680px"});
+      $(this).animate({width: "640px"});
+    });
+  })
 </script>
