@@ -4,7 +4,7 @@
 //New character form submission
 $(document).on('turbolinks:load', function () { //ensure turbolinks without refresh
   if ($("h1").html() === " New character ") { //clumsy way of ensuring only the new character page (and not all forms) are used.
-    $("form").submit(function(event) {
+    $("form").on("submit", function(event) {
       event.preventDefault();
 
       const uid = $(".user").data("uid");
@@ -47,24 +47,23 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 $(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
-    const uid = $(this).data("uid"); //("js-next"); .data("uid") === .attr("data-uid")
-        sid = $(this).data("sid");
-
-        charIds = $(this).data("array"); //index of character Ids from their shared show
-        counter = $(this).data("index"); //current index of the characters array
-        nextId = charIds[counter];
+    const uid = $(this).data("uid");
+          sid = $(this).data("sid");
+          charIds = $(this).data("array"); //index of character Ids from their shared show
+          counter = $(this).data("index"); //current index of the characters array
+          nextId = charIds[counter];
 
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
 
       $(".name").html(character.name);
       $(".note").html(character.note);
-      $(".quote").html(character.quote ? character.quote : "");
-      $(".status").html(`Status: ${character.deceased ? "Deceased" : "Alive"}`)
-      $(".hero").html(`${character.dislike ? "Villain" : "Hero"}`)
-      $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`)
-      $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`)
+      $(".quote").html(character.quote);
+      $(".status").html(`Status: ${character.deceased ? "Deceased" : "Alive"}`);
+      $(".hero").html(`${character.dislike ? "Villain" : "Hero"}`);
+      $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`);
+      $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`);
       // reset the counter (data-index) to 0 if array end is reached, else increment
-      counter === (charIds.length - 1) ? $(".js-next").data("index", 0) : $(".js-next").data("index", counter += 1);
+      counter < (charIds.length - 1) ? $(".js-next").data("index", counter += 1) : $(".js-next").data("index", 0);
     });
   });
 });
