@@ -4,6 +4,10 @@
 
 <h1 class="name"> <%= @character.name %> </h1>
 
+<% if @character.species %>
+  <h2 class="species"> Species: <%= @character.species %> </h2>
+<% end %>
+
 <h3 class="hero"> <%= @character.hero? %> </h3>
 
 <h3 class="status"> Status: <%= @character.status %> </h3>
