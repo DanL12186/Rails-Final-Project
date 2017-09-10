@@ -6,5 +6,5 @@
 
 <h4>Number of characters across all shows: <%= current_user.characters.size %></h4>
 
-<h4>Show with most characters: <%= show_with_most_characters %></h4>
+<h4>Show with most characters: <%= show_with_most_characters; link_to @largest_show.name, user_show_path(@largest_show.user.id, @largest_show.id) %> (<%= @largest_show.characters.size%>)</h4>
 <br>
