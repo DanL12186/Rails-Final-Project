@@ -2,9 +2,9 @@ module ApplicationHelper
 
   def happiness
     count = 0
-    return nil if self.characters.empty?
+    return 0 if self.characters.empty?
     self.characters.each {|char| (char.dislike && !char.deceased || !char.dislike && char.deceased) ? count -= 0.5 : count += 0.5}
-    ((count / self.characters.size * 100) + 50).round(1)
+    return ((count / self.characters.size * 100) + 50).round(1)
   end
 
   def happiest
@@ -12,14 +12,12 @@ module ApplicationHelper
   end
 
   def sort_by_name_length(show_list)
-    show_list.sort_by { |show| show.name.length }.reverse
+    show_list.sort_by { |show| -show.name.size }
   end
 
   def number_to_word(number)
-    numbers = {
-      1=>"One", 2=>"Two", 3=>"Three", 4=>"Four", 5=>"Five",
-      6=>"Six", 7=>"Seven", 8=>"Eight", 9=>"Nine"
-     }
+    numbers = {  1=>"One", 2=>"Two", 3=>"Three", 4=>"Four", 5=>"Five",
+                 6=>"Six", 7=>"Seven", 8=>"Eight", 9=>"Nine"  }
     numbers.detect { |num| num[0] == number }[1]
   end
 
