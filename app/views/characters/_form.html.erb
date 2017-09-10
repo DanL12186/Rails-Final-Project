@@ -4,6 +4,13 @@
   <%= f.label "Character name" %>
   <%= f.text_field :name %>
 
+  <% if character.show.sci_fi %>
+    <br>
+    <br>
+    <%= f.label :Species %>
+    <%= f.text_field :species %>
+  <% end %>
+
   <br>
 
   <h3>Show:</h3>
