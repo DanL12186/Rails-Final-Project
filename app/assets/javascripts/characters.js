@@ -56,6 +56,7 @@ $(document).on('turbolinks:load', function () {
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
 
       $(".name").html(character.name);
+      $(".species").html(character.species ? `Species: ${character.species}` : null);
       $(".note").html(character.note);
       $(".quote").html(character.quote);
       $(".status").html(`Status: ${character.deceased ? "Deceased" : "Alive"}`);
