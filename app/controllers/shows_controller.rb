@@ -20,9 +20,9 @@ class ShowsController < ApplicationController
     end
   end
 
-  # def update
-  #   @show.update(show_params) ? (redirect_to user_show_path(@show)) : (render :edit)
-  # end
+  def update
+    @show.update(show_params) ? (redirect_to user_show_path(@show)) : (render :edit)
+  end
 
   def destroy
     @show.destroy
@@ -40,7 +40,7 @@ class ShowsController < ApplicationController
   end
 
   def show_params #add id for nested_attributes
-    params.require(:show).permit(:name, :user_id, characters_attributes: [:note, :quote, :show_id, :dislike, :deceased, :name])
+    params.require(:show).permit(:name, :user_id, :sci_fi, characters_attributes: [:id, :note, :quote, :show_id, :dislike, :deceased, :name, :species])
   end
 
 end
