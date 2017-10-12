@@ -70,7 +70,7 @@ $(document).on('turbolinks:load', function () {
 });
 
 //JS-MORE for viewing more info (quotes and notes) on character index page for a given character
-$(document).on('turbolinks:load', function () {
+$(document).on('turbolinks:load', function() {
   $(".js-more").on("click", function() {
     const id = $(this).data("id");
     const uid = $(this).data("uid");
