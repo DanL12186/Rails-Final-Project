@@ -7,10 +7,10 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
     $("form").on("submit", function(event) {
       event.preventDefault();
 
-      const uid = $(".user").data("uid");
-      const sid = $("#character_show_id").val() //collection_select val
-      const serializedForm = $(this).serialize();
-      const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
+      const uid = $(".user").data("uid")
+      ,     sid = $("#character_show_id").val() //collection_select val
+      ,     serializedForm = $(this).serialize()
+      ,     characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, serializedForm);
 
       characterCreation.done(function(char) { //data currently character object
 
@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function () {
     ,     sid = $(this).data("sid")
     ,     charIds = $(this).data("array") //index of character Ids from their shared show
     ,     counter = $(this).data("index") //current index of the characters array
-    ,     nextId = charIds[counter]
+    ,     nextId = charIds[counter];
 
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
 
@@ -72,11 +72,11 @@ $(document).on('turbolinks:load', function () {
 //JS-MORE for viewing more info (quotes and notes) on character index page for a given character
 $(document).on('turbolinks:load', function() {
   $(".js-more").on("click", function() {
-    const id = $(this).data("id");
-    ,     uid = $(this).data("uid");
-    ,     sid = $(this).data("sid");
+    const id = $(this).data("id")
+    ,     uid = $(this).data("uid")
+    ,     sid = $(this).data("sid")
     ,     addQuote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a quote</a>`
-    ,     addNote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a note</a>`
+    ,     addNote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a note</a>`;
 
     $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
       $(`#note-${id}`).html(`Note: ${charData.note}`);
