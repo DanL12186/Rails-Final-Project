@@ -6,7 +6,7 @@ module ApplicationHelper
     unhappy_characters = self.characters.count { |char| !char.dislike && char.deceased || char.dislike && !char.deceased }
     count += (self.characters.size - unhappy_characters)/2
     count -= unhappy_characters/2
-    return ((count / self.characters.size * 100) + 50).round(1)
+    return 50 + (count / self.characters.size * 100).round(1)
   end
 
   def happiest
