@@ -24,7 +24,7 @@
 
   Note that there are constraints on what a user can do within their own account, however; they may not add multiple characters to the same show with the same name, nor may they add two shows with the same name. When creating a single new character, they may only choose from an existing show that they themselves have already created.
 
-  A user may view all of his characters at once, views his favorite characters who are still alive ("favorite" just means the user has indicated they "like" the character), view all their shows by name, view shows individually displaying character info within that show, and view characters individually. Full CRUD is also implemented; a user may delete any individual character, show, and even their own account. Deleting a parent object also destroys all its descendants. A few basic statistics have been added, such as displaying the number of shows a user has and the show with the most characters. No cross-user comparison features have been implemented.
+  A user may view all of his characters at once, view his favorite characters who are still alive ("favorite" just means the user has indicated they "like" the character), view all their shows by name, view shows individually displaying character info within that show, and view characters individually. Full CRUD is also implemented; a user may delete any individual character, show, or even their own account. Deleting a parent object also destroys all its descendants. A few basic statistics are available, such as displaying the number of shows a user has, the "happiest" show, and the show with the most characters. No cross-user comparison features have been implemented.
 
 ## Contributing
 
