@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
         	this.note = char.note
         	this.id = char.id
         	this.show = char.show
-          this.toDom = function() {
+          this.toDom = () => {
 
             const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
             const hero = (this.dislike ? "Villain" : "Hero")
@@ -47,11 +47,11 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 $(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
-    const uid = $(this).data("uid");
-          sid = $(this).data("sid");
-          charIds = $(this).data("array"); //index of character Ids from their shared show
-          counter = $(this).data("index"); //current index of the characters array
-          nextId = charIds[counter];
+    const uid = $(this).data("uid")
+    ,     sid = $(this).data("sid")
+    ,     charIds = $(this).data("array") //index of character Ids from their shared show
+    ,     counter = $(this).data("index") //current index of the characters array
+    ,     nextId = charIds[counter]
 
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
 
@@ -73,10 +73,10 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function() {
   $(".js-more").on("click", function() {
     const id = $(this).data("id");
-    const uid = $(this).data("uid");
-    const sid = $(this).data("sid");
-    const addQuote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a quote</a>`
-    const addNote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a note</a>`
+    ,     uid = $(this).data("uid");
+    ,     sid = $(this).data("sid");
+    ,     addQuote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a quote</a>`
+    ,     addNote = `<a href="/users/${uid}/shows/${sid}/characters/${id}/edit">Add a note</a>`
 
     $.get(`/users/${uid}/shows/all/characters/${id}.json`, function(charData) {
       $(`#note-${id}`).html(`Note: ${charData.note}`);
