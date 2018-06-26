@@ -47,10 +47,10 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 $(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
+    let   counter = $(this).data("index"); //current index of the characters array
     const uid = $(this).data("uid")
     ,     sid = $(this).data("sid")
     ,     charIds = $(this).data("array") //index of character Ids from their shared show
-    ,     counter = $(this).data("index") //current index of the characters array
     ,     nextId = charIds[counter];
 
     $.get(`/users/${uid}/shows/all/characters/${nextId}.json`, function(character) {
