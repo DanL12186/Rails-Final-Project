@@ -4,7 +4,7 @@
 //New character form submission
 $(document).on('turbolinks:load', function () { //ensure turbolinks without refresh
   if ($("h1").html() === " New character ") { //clumsy way of ensuring only the new character page (and not all forms) are used.
-    $("form").on("submit", function(event) {
+    $("#newChar form").on("submit", function(event) {
       event.preventDefault();
 
       const uid = $(".user").data("uid")
@@ -14,26 +14,28 @@ $(document).on('turbolinks:load', function () { //ensure turbolinks without refr
 
       characterCreation.done(function(char) { //data currently character object
 
-        function Character(char) {
-        	this.name = char.name;
-        	this.deceased = char.deceased
-        	this.dislike = char.dislike
-        	this.quote = char.quote
-        	this.note = char.note
-        	this.id = char.id
-        	this.show = char.show
-          this.toDom = () => {
+        class Character {
+          constructor(char) {
+          	this.name = char.name;
+          	this.deceased = char.deceased;
+          	this.dislike = char.dislike;
+          	this.quote = char.quote;
+          	this.note = char.note;
+          	this.id = char.id;
+          	this.show = char.show;
 
-            const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
-            const hero = (this.dislike ? "Villain" : "Hero")
-            const newCharacter = `<h3> ${this.name} </h3>
-                                  <div> ${this.note} </div>
-                                  <div><em> ${this.quote} </em></div>
-                                  <div> ${status} </div>
-                                  <div> ${hero} </div>`
+            this.toDom = () => {
+              const status = (`Status: ${char.deceased ? "Deceased" : "Alive"}`)
+              ,     hero = (this.dislike ? "Villain" : "Hero")
+              ,     newCharacter = `<h3> ${this.name} </h3>
+                                    <div> ${this.note} </div>
+                                    <div><em> ${this.quote} </em></div>
+                                    <div> ${status} </div>
+                                    <div> ${hero} </div>`
 
-            $("#newCharacters").append(newCharacter);
-            $('form').trigger('reset');
+              $("#newCharacters").append(newCharacter);
+              $('form').trigger('reset');
+            };
           };
         };
         const character = new Character(char);
@@ -64,7 +66,7 @@ $(document).on('turbolinks:load', function () {
       $(".edit").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}/edit">Edit ${character.name}</a>`);
       $(".delete").html(`<a href="/users/${uid}/shows/${character.show.id}/characters/${character.id}">Delete ${character.name}</a>`);
       // reset the counter (data-index) to 0 if array end is reached, else increment
-      counter < (charIds.length - 1) ? $(".js-next").data("index", counter += 1) : $(".js-next").data("index", 0);
+      counter < (charIds.length - 1) ? $(".js-next").data("index", ++counter) : $(".js-next").data("index", 0);
     });
   });
 });
