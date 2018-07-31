@@ -4,7 +4,7 @@
 //New character form submission
 $(document).on('turbolinks:load', function () { //ensure turbolinks without refresh
   if ($("h1").html() === " New character ") { //clumsy way of ensuring only the new character page (and not all forms) are used.
-    $("#newChar form").on("submit", function(event) {
+    $("form").on("submit", function(event) {
       event.preventDefault();
 
       const uid = $(".user").data("uid")
