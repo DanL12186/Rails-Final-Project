@@ -4,7 +4,7 @@
   <%= f.label "Character name" %>
   <%= f.text_field :name %>
 
-  <% if character.show && character.show.sci_fi %>
+  <% if character.try(:show).try(:sci_fi) %>
     <br><br>
     <%= f.label :Species %>
     <%= f.text_field :species %>
