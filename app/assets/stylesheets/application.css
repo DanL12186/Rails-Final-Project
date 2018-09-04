@@ -14,14 +14,19 @@
  *= require_self
  */
 
- /*.navbar-header h3 a {
-  background-color: black;
-  color: white;
-  padding: 15px 24px;
+ .navbar-header h3 a {
+
+  color: blue;
+  padding: 5px 24px 10px 5px;
   text-decoration: none;
   display: inline-block;
- }*/
+ }
+
+ a {
+   text-decoration: none;
+ }
 
  a:visited {
+  text-decoration: none;
   color: blue;
  };
