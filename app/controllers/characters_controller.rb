@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
   end
 
   def index
-    @characters = current_user.characters
+    @characters = current_user.characters.includes(:show)
   end
 
   def favorite_characters

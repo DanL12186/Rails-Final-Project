@@ -1,10 +1,10 @@
 <% characters.each do |char| %>
-  <h2> Name: <%= link_to char.name, user_show_character_path(current_user, char.show.id, char.id) %> </h2>
+  <h2> Name: <%= link_to char.name, user_show_character_path(user, char.show.id, char.id) %> </h2>
   <h3> Status: <%= char.status %> </h3>
   <h3> Classification: <%= char.hero? %> </h3>
   <h3 id="note-<%= char.id %>"> Notes: <%= char.note.truncate(30) %> </h3>
   <h3 id="quote-<%= char.id %>">
-    <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= char.user.id%>">More...</button>
+    <button class="js-more" data-id="<%= char.id %>" data-sid="<%= char.show_id %>" data-uid="<%= user.id%>">More...</button>
   </h3>
   <h3><details>
     <p> Show: <%= char.show.name %> </p>
