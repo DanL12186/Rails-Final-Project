@@ -30,7 +30,7 @@ class ShowsController < ApplicationController
   end
 
   def index
-    @shows = Show.where("user_id = ?", current_user.id)
+    @shows = current_user.shows.includes(:characters)
   end
 
   private
