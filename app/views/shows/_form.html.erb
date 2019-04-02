@@ -11,22 +11,22 @@
   <%= f.fields_for :characters do |char| %>
     <br>
     <fieldset>
-    <legend>Character</legend>
-    <%= char.label :name %>
-    <%= char.text_field :name %>
-    <br><br>
-    <%= char.label :notes %>
-    <%= char.text_area :note %>
-    <br><br>
-    <%= char.label "quote(s) " %>
-    <%= char.text_field :quote %>
-    <br><br>
-    <%= char.label :deceased? %>
-    <%= char.check_box :deceased %>
-    <br><br>
-    <%= char.label :dislike? %>
-    <%= char.check_box :dislike %>
-    <br>
+      <legend>Character</legend>
+      <%= char.label :name %>
+      <%= char.text_field :name %>
+      <br><br>
+      <%= char.label :notes %>
+      <%= char.text_area :note %>
+      <br><br>
+      <%= char.label "quote(s) " %>
+      <%= char.text_field :quote %>
+      <br><br>
+      <%= char.label :deceased? %>
+      <%= char.check_box :deceased %>
+      <br><br>
+      <%= char.label :dislike? %>
+      <%= char.check_box :dislike %>
+      <br>
     </fieldset>
    <% end %>
   <br>
