@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function () {
   });
 
   $("#add_character").on("click", function() {
-    const form = $("#shows_character_form")
+    const form = $("#new_character")
     const { display } = form[0].style;
 
     if (display !== "block") {
@@ -37,20 +37,22 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-    if ($("h1").html() !== " New character ") {
-      $("#new_character").on("submit", function(event) {
-        event.preventDefault();
+  if (!$("#add_character").html().trim() !== "New character") {
+    $("#new_character").hide()
+    
+    $("#new_character").on("submit", function(event) {
+      event.preventDefault();
 
-        const uid = $(".user").data("uid");
-        const sid = $("#character_show_id").val() //collection_select
-        const formData = $(this).serialize();
-        const characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, formData);
+      const uid = $(".user").data("uid")
+      ,     sid = $("#character_show_id").val() //collection_select
+      ,     formData = $(this).serialize()
+      ,     characterCreation = $.post(`/users/${uid}/shows/${sid}/characters`, formData);
 
-        characterCreation.done(function(char) {
-          const newCharacter = `<h3> <a href="/users/${uid}/shows/${sid}/characters/${char.id}">${char.name}</a> </h3>`
-          $("#jQuery_add_characters").append(newCharacter);
-          $('form').trigger('reset');
-       });
+      characterCreation.done(function(char) {
+        const newCharacter = `<h3> <a href="/users/${uid}/shows/${sid}/characters/${char.id}">${char.name}</a> </h3>`
+        $("#jQuery_add_characters").append(newCharacter);
+        $('form').trigger('reset');
+      });
     });
   };
 });
