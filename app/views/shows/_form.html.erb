@@ -2,8 +2,11 @@
 
   <%= render partial: "errors", locals: { object: show } %>
 
-  <h2><%= f.label "Show name" %>
-  <%= f.text_field :name %></h2>
+  <h2>
+    <%= f.label "Show name" %>
+    <%= f.text_field :name %>
+  </h2>
+
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <h3> Characters </h3>
@@ -11,7 +14,7 @@
   <%= f.fields_for :characters do |char| %>
     <br>
     <fieldset>
-      <legend>Character</legend>
+      <legend> Character </legend>
       <%= char.label :name %>
       <%= char.text_field :name %>
       <br><br>
@@ -28,7 +31,7 @@
       <%= char.check_box :dislike %>
       <br>
     </fieldset>
-   <% end %>
+  <% end %>
   <br>
   <%= f.label "Sci-Fi?" %>
   <%= f.check_box :sci_fi  %>
